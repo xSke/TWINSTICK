@@ -42,6 +42,7 @@ public class GameScreen extends ScreenAdapter {
     private SpringingContext1D blackout = new SpringingContext1D(0.7f, 1);
     private float playerMaxHealth = 5;
     private boolean freezeControls;
+    private SpringingContext1D musicVolume = new SpringingContext1D(0.35f, 1f);
 
     public GameScreen() {
         // TODO: polish
@@ -58,10 +59,26 @@ public class GameScreen extends ScreenAdapter {
         currentMap = "premap.tmx";
         reset(currentMap);
 
+        Assets.music.setLooping(true);
+        Assets.music.play();
+
+        Assets.ambient.setLooping(true);
+        Assets.ambient.play();
+
         ui = new UI();
     }
 
     public void render(float delta) {
+        musicVolume.update(delta);
+        Assets.music.setVolume(musicVolume.value);
+        Assets.ambient.setVolume(1-musicVolume.value);
+
+        if (bossState == BossState.FIGHTING) {
+            musicVolume.target = 1;
+        } else {
+            musicVolume.target = 0;
+        }
+
         Color c = Palette.BACKGROUND;
         Gdx.gl.glClearColor(c.r, c.g, c.b, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

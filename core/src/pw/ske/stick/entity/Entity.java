@@ -57,7 +57,9 @@ public class Entity implements Comparable<Entity> {
         if (dying) {
             killTimer -= delta;
             size.getVelocity().set(size.getTarget()).scl(10);
-            size.getTarget().set(0, 0);
+            if (killTimer < 0.6f) {
+                size.getTarget().set(0, 0);
+            }
 
             if (killTimer < 0f) {
                 destroy();
@@ -110,7 +112,7 @@ public class Entity implements Comparable<Entity> {
     public void kill() {
         dying = true;
         killTimer = maxKillTimer;
-        size.getTarget().scl(2);
+        size.getTarget().scl(1.5f);
         GameScreen.i.pause(0.05f);
     }
 

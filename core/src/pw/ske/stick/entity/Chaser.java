@@ -9,6 +9,7 @@ public class Chaser extends LivingEntity {
     private SpringingContext1D xVel = new SpringingContext1D(4, 1);
 
     public Chaser() {
+        damagePauseAmount = 0;
         size.getTarget().set(1f, 1f);
         Fixture fixture = rectCollision(1f, 1f);
         Filter filter = new Filter();

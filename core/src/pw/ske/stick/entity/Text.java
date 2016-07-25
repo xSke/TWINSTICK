@@ -11,6 +11,7 @@ public class Text extends Entity {
     private final String text;
     private final boolean bossdeath;
     private SpringingContext1D opacity = new SpringingContext1D(4, 1);
+    private boolean trigd;
 
     public Text(String text, boolean bossdeath) {
         this.text = text;
@@ -31,6 +32,10 @@ public class Text extends Entity {
             if (GameScreen.i.getBossState() == GameScreen.BossState.DEAD) {
                 opacity.target = 0;
             } else if (GameScreen.i.getPlayer().getBody().getPosition().x + 3 > getBody().getPosition().x) {
+                if (!trigd) {
+                    Assets.boop.play();
+                    trigd = true;
+                }
                 opacity.target = 1;
             }
         }

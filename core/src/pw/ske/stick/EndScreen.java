@@ -58,13 +58,25 @@ public class EndScreen extends ScreenAdapter {
         cachebig.setAlphas(MathUtils.clamp(timer * 1.5f - 1, 0, 1));
         cachebig.draw(batch);
 
-        cache.setText("By Ske", Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() * 0.6f, 1, Align.center, false);
+        cache.setText("Game by Ske", Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() * 0.6f, 1, Align.center, false);
         cache.setAlphas(MathUtils.clamp(timer * 1.5f - 1.5f, 0, 1));
         cache.draw(batch);
 
         cache.setText("@SkeDevs", Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() * 0.55f, 1, Align.center, false);
         cache.setAlphas(MathUtils.clamp(timer * 1.5f - 2f, 0, 1));
         cache.draw(batch);
+
+        cache.setText("Music by Kiersten Redmyer", Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() * 0.4f, 1, Align.center, false);
+        cache.setAlphas(MathUtils.clamp(timer * 1.5f - 3f, 0, 1));
+        cache.draw(batch);
+
+        cache.setText("@kredmyer", Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() * 0.35f, 1, Align.center, false);
+        cache.setAlphas(MathUtils.clamp(timer * 1.5f - 3.5f, 0, 1));
+        cache.draw(batch);
+
+        cachebig.setText("THANKS FOR PLAYING!", Gdx.graphics.getWidth() / 2f, Gdx.graphics.getHeight() * 0.2f, 1, Align.center, false);
+        cachebig.setAlphas(MathUtils.clamp(timer * 1.5f - 5f, 0, 1));
+        cachebig.draw(batch);
         batch.end();
     }
 }

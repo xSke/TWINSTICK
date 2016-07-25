@@ -14,7 +14,7 @@ public class BasicBoss extends Boss {
 
     private final Fixture fixture;
     private final Hat hat;
-    private int pissedHealth = 20;
+    private int pissedHealth = 10;
     private BossState state = BossState.WAITING;
     private float timer;
     private boolean hasAudioed;
@@ -22,8 +22,8 @@ public class BasicBoss extends Boss {
     public BasicBoss() {
         super("Bill");
         color = Palette.FOREGROUND;
-        health = maxHealth = 40;
-        damageOnTouch = 1;
+        health = maxHealth = 25;
+        damageOnTouch = 0.7f;
 
         getBody().setFixedRotation(true);
         size.getTarget().set(1, 1);
